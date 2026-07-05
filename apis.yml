@@ -1,0 +1,160 @@
+aid: stack-takeoff
+url: https://raw.githubusercontent.com/api-evangelist/stack-takeoff/refs/heads/main/apis.yml
+name: STACK
+kind: company
+description: STACK Construction Technologies makes cloud-based preconstruction
+  software for on-screen takeoff and estimating used by contractors across most
+  trades. STACK does expose a real, documented REST API (v2), but access is gated -
+  you must be a STACK customer on an API-Enabled Subscription (or an approved
+  partner) to obtain credentials. Authentication is OAuth 2.0, offered as
+  two-legged (client-credentials, server-to-server) and three-legged
+  (authorization-code, on behalf of a user) flows. Tokens are issued by a
+  per-tenant authorization server (base pattern https://{server}/api/v2). The full
+  endpoint reference sits behind an access request; the API surface catalogued here
+  is modeled from STACK's public developer overview, authentication guide, and
+  tutorials - it is not sourced from an official machine-readable OpenAPI document.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Construction
+- Preconstruction
+- Takeoff
+- Estimating
+- Construction Technology
+- Partner API
+created: '2026-07-04'
+modified: '2026-07-04'
+specificationVersion: '0.19'
+apis:
+- aid: stack-takeoff:stack-takeoff-projects-api
+  name: STACK Projects API
+  tags:
+  - Projects
+  - Folders
+  - Preconstruction
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.stackct.com/developers-docs/
+  baseURL: https://{server}/api/v2
+  properties:
+  - url: https://www.stackct.com/developers-docs/
+    type: Documentation
+  - url: https://www.stackct.com/developers-reference/
+    type: APIReference
+  - url: openapi/stack-takeoff-openapi.yml
+    type: OpenAPI
+  description: Create and update projects and organize their contents in folders -
+    the top-level container that takeoffs, plans, and estimates hang off of. Modeled
+    from STACK's developer tutorials (POST/PUT /Projects, project Folders CRUD).
+- aid: stack-takeoff:stack-takeoff-plans-files-api
+  name: STACK Plans & Files API
+  tags:
+  - Plans
+  - Files
+  - Documents
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.stackct.com/developers-docs/
+  baseURL: https://{server}/api/v2
+  properties:
+  - url: https://www.stackct.com/developers-docs/
+    type: Documentation
+  - url: https://www.stackct.com/developers-docs-tutorials/
+    type: Documentation
+  - url: openapi/stack-takeoff-openapi.yml
+    type: OpenAPI
+  description: Upload plan sets and supporting documents into project folders, read
+    file metadata, update file properties, and download plans. Modeled from STACK's
+    developer tutorials (Folders/Files endpoints).
+- aid: stack-takeoff:stack-takeoff-takeoffs-api
+  name: STACK Takeoffs API
+  tags:
+  - Takeoff
+  - Pages
+  - Quantities
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.stackct.com/developers-docs/
+  baseURL: https://{server}/api/v2
+  properties:
+  - url: https://www.stackct.com/developers-docs/
+    type: Documentation
+  - url: https://www.stackct.com/developers-docs-tutorials/
+    type: Documentation
+  - url: openapi/stack-takeoff-openapi.yml
+    type: OpenAPI
+  description: Create takeoffs on a project, list a takeoff's pages, set page scale,
+    and retrieve measured quantities. On-screen takeoff is STACK's core workflow.
+    Modeled from STACK's developer tutorials (CreateTakeoff, Takeoffs Pages, Scale).
+- aid: stack-takeoff:stack-takeoff-estimates-api
+  name: STACK Estimates API
+  tags:
+  - Estimating
+  - Proposals
+  - Costs
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.stackct.com/developers-docs/
+  baseURL: https://{server}/api/v2
+  properties:
+  - url: https://www.stackct.com/developers-docs/
+    type: Documentation
+  - url: https://www.stackct.com/developers-docs-tutorials/
+    type: Documentation
+  - url: openapi/stack-takeoff-openapi.yml
+    type: OpenAPI
+  description: Create, update, and retrieve estimate proposals - turning takeoff
+    quantities into priced line items and a bid. Modeled from STACK's developer
+    tutorials (EstimateProposals endpoints).
+- aid: stack-takeoff:stack-takeoff-items-assemblies-api
+  name: STACK Items & Assemblies API
+  tags:
+  - Items
+  - Assemblies
+  - Cost Data
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.stackct.com/developers-docs/
+  baseURL: https://{server}/api/v2
+  properties:
+  - url: https://www.stackct.com/developers-docs/
+    type: Documentation
+  - url: openapi/stack-takeoff-openapi.yml
+    type: OpenAPI
+  description: Manage items and assemblies attached to takeoffs and retrieve their
+    quantities and costs, so partner tools can pull takeoff/estimating data into
+    invoices, purchase orders, or a separate estimating system. Modeled from STACK's
+    developer overview description of core capabilities.
+- aid: stack-takeoff:stack-takeoff-reference-data-api
+  name: STACK Reference Data API
+  tags:
+  - Reference Data
+  - Cost Types
+  - Lookups
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.stackct.com/developers-docs/
+  baseURL: https://{server}/api/v2
+  properties:
+  - url: https://www.stackct.com/developers-docs-tutorials/
+    type: Documentation
+  - url: openapi/stack-takeoff-openapi.yml
+    type: OpenAPI
+  description: Read-only lookup endpoints for cost types, states, and countries used
+    when constructing projects and estimates. Modeled from STACK's developer
+    tutorials (CostTypes, States, Countries).
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/stack-construction-technologies
+- type: Website
+  url: https://www.stackct.com/
+- type: Documentation
+  url: https://www.stackct.com/developers-docs/
+- type: Authentication
+  url: https://www.stackct.com/developers-docs-authentication/
+- type: SignUp
+  url: https://www.stackct.com/developers/
+- type: Plans
+  url: plans/stack-takeoff-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/stack-takeoff-rate-limits.yml
+- type: FinOps
+  url: finops/stack-takeoff-finops.yml
+- url: https://www.stackct.com/blog/
+  type: Blog
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

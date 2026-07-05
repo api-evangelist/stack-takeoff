@@ -1,0 +1,130 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: STACK
+providerId: stack-takeoff
+created: '2026-07-04'
+modified: '2026-07-04'
+reconciled: false
+tags:
+- Construction
+- Preconstruction
+- Takeoff
+- Estimating
+- Plans
+description: >-
+  STACK is sold as a per-seat SaaS subscription for full-access (estimator) users,
+  billed annually, with unlimited viewer seats and unlimited projects included.
+  Published Takeoff & Estimate tiers are Premium (takeoff plus GPT-powered AI chat)
+  and Pro (fully integrated takeoff and estimating, marketed as best value), with a
+  separate lower-cost Build & Operate product and a "Build Your Own" custom bundle.
+  API access is NOT a self-serve add-on with public pricing: it requires a STACK
+  customer account on an API-Enabled Subscription (or an approved partner
+  agreement), and STACK also markets an "API + BUILD" bundle whose price is quoted
+  on request. A free 7-day trial exposes Pro-level features. Exact figures vary by
+  region, seat count, and promotion, and volume discounts apply as seats are added.
+notes: >-
+  Prices below reflect publicly reported figures as of mid-2026 and are not
+  reconciled against a live quote. Per-seat prices commonly reported: Premium
+  ~$249/user/month and Pro ~$299/user/month when billed annually; independent
+  reviews also cite annual entry points (e.g. Standard ~$2,599/yr, Build & Operate
+  ~$599/yr). API access pricing is quote-only - contact STACK.
+sources:
+- https://www.stackct.com/pricing/
+- https://www.stackct.com/takeoff-and-estimate-pricing/
+- https://www.stackct.com/api-build-pricing/
+- https://www.stackct.com/developers/
+plans:
+- id: stack-free-trial
+  name: Free Trial
+  type: free
+  description: >-
+    7-day trial with Pro-level takeoff and estimating features on any project.
+    Add as many users as you like; upgrade only if you decide to keep it. No API
+    access.
+  entries:
+  - label: Trial Period
+    name: trial_period
+    type: usage
+    metric: days
+    limit: 7
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: free for 7 days
+    userMultiplied: false
+  elements:
+  - name: Pro-Level Features (Trial)
+  - name: Unlimited Projects
+- id: stack-premium
+  name: Premium (Takeoff + AI)
+  type: paid
+  description: >-
+    Accurate on-screen takeoff tools to measure labor and materials, plus
+    GPT-powered AI chat. Per full-access user, billed annually. Unlimited viewer
+    seats and unlimited projects included.
+  entries:
+  - label: Full-Access Seat
+    name: premium_seat
+    type: flat
+    metric: seat
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: ~$249 per user/month (billed annually)
+    userMultiplied: true
+  elements:
+  - name: On-Screen Takeoff
+  - name: AI Chat (GPT-powered)
+  - name: Unlimited Viewer Seats
+  - name: Unlimited Projects
+- id: stack-pro
+  name: Pro (Takeoff + Estimate)
+  type: paid
+  description: >-
+    Fully integrated takeoff and estimating platform to get from plans to a
+    profitable bid. Marketed as best value. Per full-access user, billed
+    annually. Unlimited viewer seats and unlimited projects included.
+  entries:
+  - label: Full-Access Seat
+    name: pro_seat
+    type: flat
+    metric: seat
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: ~$299 per user/month (billed annually)
+    userMultiplied: true
+  elements:
+  - name: Integrated Takeoff and Estimating
+  - name: On-Screen Takeoff
+  - name: Unlimited Viewer Seats
+  - name: Unlimited Projects
+- id: stack-api-enabled
+  name: API-Enabled Subscription / API + BUILD
+  type: enterprise
+  description: >-
+    Programmatic API access is gated to STACK customers on an API-Enabled
+    Subscription or approved partners. STACK markets an "API + BUILD" bundle;
+    pricing is quoted on request based on integration type (custom vs partner)
+    and account structure.
+  entries:
+  - label: API Access
+    name: api_access
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: quote-only (requires API-Enabled Subscription / partner agreement)
+    userMultiplied: false
+  elements:
+  - name: REST API v2 Access
+  - name: OAuth 2.0 (Two-Legged and Three-Legged)
+  - name: BUILD Product Bundle
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

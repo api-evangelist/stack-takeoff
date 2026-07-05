@@ -1,0 +1,66 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: STACK
+providerId: stack-takeoff
+created: '2026-07-04'
+modified: '2026-07-04'
+reconciled: false
+tags:
+- Construction
+- Preconstruction
+- Takeoff
+- Estimating
+- Rate Limiting
+- Quotas
+description: >-
+  STACK does not publish fixed numeric request-rate limits for its REST API v2 in
+  its public developer materials. The documented constraints are OAuth 2.0 token
+  lifetimes rather than per-minute request caps: access tokens are valid for 8
+  hours, authorization codes for 5 minutes, and refresh tokens for 90 days.
+  Because the API is access-gated (API-Enabled Subscription or partner agreement),
+  any concrete throttles or per-account quotas are established with STACK when
+  credentials are issued and confirmed in the access-controlled API reference.
+notes: >-
+  No numeric per-endpoint or per-account request limits are documented publicly as
+  of the review date. Clients should refresh access tokens before the 8-hour
+  expiry, cache the OAuth token rather than re-authenticating per request, and
+  implement exponential backoff with jitter on 429/5xx responses. Verify actual
+  limits with STACK after obtaining API access.
+sources:
+- https://www.stackct.com/developers-docs-authentication/
+- https://www.stackct.com/developers-docs/
+- https://www.stackct.com/developers/
+responseCodes:
+  throttled: 429
+limits:
+- name: REST API Requests
+  scope: account
+  metric: requests
+  limit: not published
+  notes: No fixed numeric request-rate limit is documented publicly for STACK API v2.
+- name: Access Token Lifetime
+  scope: token
+  metric: duration
+  limit: 8 hours
+  notes: OAuth 2.0 access tokens expire after 8 hours; refresh before expiry.
+- name: Authorization Code Lifetime
+  scope: token
+  metric: duration
+  limit: 5 minutes
+  notes: Three-legged authorization codes are single-use and expire in 5 minutes.
+- name: Refresh Token Lifetime
+  scope: token
+  metric: duration
+  limit: 90 days
+  notes: Refresh tokens extend user permission verification for up to 90 days.
+policies:
+- name: Token Caching
+  description: Reuse a cached access token for its 8-hour lifetime instead of authenticating on every request.
+- name: Backoff Strategy
+  description: On 429 or 5xx responses, retry with exponential backoff and jitter and honor any Retry-After header.
+- name: Negotiated Limits
+  description: Concrete throttles and quotas are set with STACK when API credentials are issued and documented in the access-controlled reference.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

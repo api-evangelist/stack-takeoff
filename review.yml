@@ -1,0 +1,95 @@
+aid: stack-takeoff
+name: STACK
+review:
+  question: Does STACK expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-04'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. STACK's developer surface is a
+    request/response REST API (v2) over HTTPS, authenticated with OAuth 2.0.
+    Nothing in STACK's public developer overview, authentication guide, or
+    tutorials describes a server-push transport (WebSocket or SSE) on STACK's
+    own API, so there is no event-driven surface to model. STACK's API is also
+    access-gated (customers on an API-Enabled Subscription, or approved
+    partners), which further limits what can be independently verified.
+findings:
+  summary: |
+    STACK does not publish a documented public WebSocket API. STACK Construction
+    Technologies makes cloud-based preconstruction software for on-screen takeoff
+    and estimating. It offers a real, documented REST API (v2) whose base follows
+    the pattern https://{server}/api/v2, where {server} is a per-tenant host
+    issued with your API credentials. Authentication is OAuth 2.0 in two flavors:
+    two-legged (client-credentials, server-to-server) and three-legged
+    (authorization-code, on behalf of a user). Access tokens last 8 hours,
+    authorization codes 5 minutes, refresh tokens 90 days. All documented calls
+    are request/response REST over HTTPS - there is no realtime, bidirectional,
+    or streaming WebSocket (ws:// or wss://) endpoint documented anywhere in
+    STACK's developer materials as of the review date.
+  accessModel: |
+    STACK's API is not openly self-serve. To obtain credentials you must be a
+    STACK customer on an API-Enabled Subscription, or request access as a
+    software partner (custom vs partner integration). The full endpoint
+    reference is behind that access request; the endpoints catalogued in this
+    entry are modeled from STACK's public developer overview, authentication
+    guide, and tutorials rather than from an official OpenAPI document.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://{server}/api/v2
+      documented: true
+      note: STACK API v2. {server} is the per-tenant host issued with API credentials.
+    - protocol: OAuth 2.0
+      scheme: https
+      documented: true
+      note: Authorization server at https://{server}/OAuth/Token and /OAuth/Authorize; two-legged (client_credentials) and three-legged (authorization_code) flows.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in STACK's developer overview, authentication guide, or tutorials as of the review date.
+  endpointsModeled:
+    - POST /api/v2/Projects
+    - PUT  /api/v2/Projects/{projectId}
+    - POST /api/v2/Projects/{projectId}/CreateTakeoff
+    - POST /api/v2/Projects/{projectId}/Folders
+    - GET  /api/v2/Projects/{projectId}/Folders
+    - GET  /api/v2/Folders/{folderId}
+    - GET  /api/v2/Folders/{folderId}/Folders
+    - PUT  /api/v2/Folders/{folderId}
+    - POST /api/v2/Folders/{folderId}/Files
+    - GET  /api/v2/Files/{fileId}
+    - PUT  /api/v2/Files/{fileId}
+    - GET  /api/v2/Takeoffs/{takeoffId}/Pages
+    - POST /api/v2/Takeoffs/{takeoffId}/Pages/{pageId}/Scale
+    - POST /api/v2/EstimateProposals
+    - PUT  /api/v2/EstimateProposals
+    - GET  /api/v2/EstimateProposals/{proposalId}
+    - GET  /api/v2/CostTypes
+    - GET  /api/v2/States
+    - GET  /api/v2/Countries
+sources:
+  - url: https://www.stackct.com/developers-docs/
+    type: Documentation
+    note: Developer overview - core capabilities (projects, plans, takeoffs, items, assemblies, quantities/costs), REST, OAuth 2.0. No WebSocket mentioned.
+  - url: https://www.stackct.com/developers-docs-authentication/
+    type: Documentation
+    note: OAuth 2.0 two-legged (client_credentials) and three-legged (authorization_code) flows; token/authorize endpoints; token lifetimes.
+  - url: https://www.stackct.com/developers-docs-tutorials/
+    type: Documentation
+    note: Tutorials show the modeled /api/v2 paths (Projects, Folders, Files, Takeoffs Pages/Scale, EstimateProposals, CostTypes/States/Countries).
+  - url: https://www.stackct.com/developers/
+    type: SignUp
+    note: Request API access form; distinguishes custom vs partner integration. Access-gated.
+  - url: https://www.stackct.com/developers-reference/
+    type: APIReference
+    note: Full API reference is behind the access request; not publicly enumerable.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists on STACK's API, and the documented
+    surface is request/response REST (API v2) authenticated with OAuth 2.0.
+    No AsyncAPI document was created because there is no server-push transport
+    on STACK's own API to model. The catalogued endpoints are modeled from
+    STACK's public developer docs and tutorials, not from an official spec.
