@@ -137,6 +137,8 @@ apis:
     when constructing projects and estimates. Modeled from STACK's developer
     tutorials (CostTypes, States, Countries).
 common:
+- type: DomainSecurity
+  url: security/stack-takeoff-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/stack-construction-technologies
 - type: Website
