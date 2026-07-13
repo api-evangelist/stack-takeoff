@@ -1,0 +1,14 @@
+{
+  "repo": "stack-takeoff",
+  "feeds": [
+    {
+      "source": "https://www.stackct.com/blog/",
+      "feed_url": "https://www.stackct.com/feed/",
+      "title": "",
+      "saved": 1,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 1,
+  "fetched": "2026-07-11T11:50:51Z"
+}
