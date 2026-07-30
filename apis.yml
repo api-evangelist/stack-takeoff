@@ -13,7 +13,19 @@ description: STACK Construction Technologies makes cloud-based preconstruction
   endpoint reference sits behind an access request; the API surface catalogued here
   is modeled from STACK's public developer overview, authentication guide, and
   tutorials - it is not sourced from an official machine-readable OpenAPI document.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: true
+  try_now: false
+  public: false
+  label: Freemium (free trial)
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/stack-takeoff.png
 tags:
 - Construction
 - Preconstruction
