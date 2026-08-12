@@ -51,8 +51,6 @@ apis:
     type: Documentation
   - url: https://www.stackct.com/developers-reference/
     type: APIReference
-  - url: openapi/stack-takeoff-openapi.yml
-    type: OpenAPI
   description: Create and update projects and organize their contents in folders -
     the top-level container that takeoffs, plans, and estimates hang off of. Modeled
     from STACK's developer tutorials (POST/PUT /Projects, project Folders CRUD).
@@ -70,8 +68,6 @@ apis:
     type: Documentation
   - url: https://www.stackct.com/developers-docs-tutorials/
     type: Documentation
-  - url: openapi/stack-takeoff-openapi.yml
-    type: OpenAPI
   description: Upload plan sets and supporting documents into project folders, read
     file metadata, update file properties, and download plans. Modeled from STACK's
     developer tutorials (Folders/Files endpoints).
@@ -89,8 +85,6 @@ apis:
     type: Documentation
   - url: https://www.stackct.com/developers-docs-tutorials/
     type: Documentation
-  - url: openapi/stack-takeoff-openapi.yml
-    type: OpenAPI
   description: Create takeoffs on a project, list a takeoff's pages, set page scale,
     and retrieve measured quantities. On-screen takeoff is STACK's core workflow.
     Modeled from STACK's developer tutorials (CreateTakeoff, Takeoffs Pages, Scale).
@@ -108,8 +102,6 @@ apis:
     type: Documentation
   - url: https://www.stackct.com/developers-docs-tutorials/
     type: Documentation
-  - url: openapi/stack-takeoff-openapi.yml
-    type: OpenAPI
   description: Create, update, and retrieve estimate proposals - turning takeoff
     quantities into priced line items and a bid. Modeled from STACK's developer
     tutorials (EstimateProposals endpoints).
@@ -125,8 +117,6 @@ apis:
   properties:
   - url: https://www.stackct.com/developers-docs/
     type: Documentation
-  - url: openapi/stack-takeoff-openapi.yml
-    type: OpenAPI
   description: Manage items and assemblies attached to takeoffs and retrieve their
     quantities and costs, so partner tools can pull takeoff/estimating data into
     invoices, purchase orders, or a separate estimating system. Modeled from STACK's
@@ -143,8 +133,6 @@ apis:
   properties:
   - url: https://www.stackct.com/developers-docs-tutorials/
     type: Documentation
-  - url: openapi/stack-takeoff-openapi.yml
-    type: OpenAPI
   description: Read-only lookup endpoints for cost types, states, and countries used
     when constructing projects and estimates. Modeled from STACK's developer
     tutorials (CostTypes, States, Countries).
