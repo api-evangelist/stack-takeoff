@@ -13,6 +13,17 @@ description: STACK Construction Technologies makes cloud-based preconstruction
   endpoint reference sits behind an access request; the API surface catalogued here
   is modeled from STACK's public developer overview, authentication guide, and
   tutorials - it is not sourced from an official machine-readable OpenAPI document.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
