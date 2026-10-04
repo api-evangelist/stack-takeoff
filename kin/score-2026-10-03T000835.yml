@@ -1,22 +1,20 @@
-# Kin Score artifact — stack-takeoff — 2026-08-25T133943
+# Kin Score artifact — stack-takeoff — 2026-10-03T000835
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: stack-takeoff
-  schema_version: 0.14.0
-  scored_at: '2026-08-25'
-  run_ts: 2026-08-25T133943
-  composite: 26.8
+  schema_version: 0.23.0
+  scored_at: '2026-10-03'
+  run_ts: 2026-10-03T000835
+  composite: 26.4
   band: thin
   facets:
-    discoverability: 74.1
+    discoverability: 71.4
     contract_quality: 0.0
-    governance: 0.0
-    operational_transparency: 31.6
-    developer_ergonomics: 23.8
-    commercial_clarity: 52.6
     contract_governance: 0.0
-    access_clarity: 52.6
+    operational_transparency: 28.4
+    developer_ergonomics: 31.0
+    access_clarity: 49.5
   agent_readiness:
     score: 5.0
     band: human-only
@@ -40,3 +38,9 @@ kin_score:
       protected_resource_metadata: false
       dynamic_client_registration: false
       agentic_commerce: false
+  regulatory:
+    applies: true
+    regime: Horizontal (data, software, accessibility, platform)
+    regime_id: horizontal
+    score: 11.8
+    matched_via: fallback
