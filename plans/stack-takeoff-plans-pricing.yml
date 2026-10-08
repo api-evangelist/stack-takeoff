@@ -133,3 +133,47 @@ plans:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - seat
+  - subscription
+  units:
+  - negotiated
+  - period
+  - seat
+  plans:
+  - name: Free Trial
+    access: free
+    model: free
+    model_how: derived
+    units:
+    - period
+    periods:
+    - month
+  - name: Premium (Takeoff + AI)
+    access: paid
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Pro (Takeoff + Estimate)
+    access: paid
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: API-Enabled Subscription / API + BUILD
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - year
